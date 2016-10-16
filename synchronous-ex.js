@@ -118,7 +118,10 @@ var summarize = function(results) {
 var synchronous_mock_download = function(inst) {
     var tm = new Timer('  ' + inst.url);
     tm.start();
-    var delay_us = inst.delay_ms * 1000;
+    //before
+    // var delay_us = inst.delay_ms * 1000;
+    //after
+    var delay_us = Math.floor(inst.delay_ms * 1000);
     sleep.usleep(delay_us);
     tm.elapsed();
     return inst.delay_ms;
