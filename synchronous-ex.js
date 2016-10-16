@@ -17,6 +17,7 @@ var uu = require('underscore');
 var sleep = require('sleep');
 
 
+
 /*
    Illustrates simple object-oriented programming style with JS. No
    inheritance here or need for prototype definitions; instead, a fairly
@@ -121,10 +122,12 @@ var synchronous_mock_download = function(inst) {
     //before
     // var delay_us = inst.delay_ms * 1000;
     //after
-    var delay_us = Math.floor(inst.delay_ms * 1000);
-    sleep.usleep(delay_us);
+    var delay_us = inst;
+    if(delay_us < 1)
+    { sleep.usleep(delay_us);}
+
     tm.elapsed();
-    return inst.delay_ms;
+    return delay_us;
 };
 
 /*
